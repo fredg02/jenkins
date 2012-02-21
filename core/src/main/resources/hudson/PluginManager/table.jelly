@@ -80,7 +80,7 @@ THE SOFTWARE.
                     <j:set var="p" value="${p.plugin}" />
                     <j:if test="${thisCat != lastCat}">
                       <tr>
-                        <td class="pane" colspan="4" onclick="showhideCategory(this)">${thisCat}</td>
+                        <td class="pane" colspan="4" onclick="showhideCategory(this)"><a name="${thisCat}">${thisCat}</a></td>
                       </tr>
                     </j:if>
                     <j:set var="lastCat" value="${thisCat}" />

@@ -355,6 +355,27 @@ public class UpdateSite {
         }
         return r;
     }
+    
+    /**
+     * Returns a list of categories
+     */
+    public List<String> getCategories() {
+        List<String> r = new ArrayList<String>();
+        Data data = getData();
+        if(data==null){
+            return Collections.emptyList();
+        }
+        for (Plugin p : data.plugins.values()) {
+            if(p.categories !=null){
+                for(String s : p.categories){
+                    if(!r.contains(s)){
+                        r.add(s);
+                    }
+                }
+            }
+        }
+        return r;
+    }
 
     /**
      * Gets the information about a specific plugin.

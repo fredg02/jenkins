@@ -482,6 +482,18 @@ public class UpdateCenter extends AbstractModelObject implements Saveable {
 
         return plugins;
     }
+    
+    public List<String> getCategories() {
+        List<String> categories = new ArrayList<String>();
+
+        for (UpdateSite s : sites) {
+            for(String c : s.getCategories()){
+                categories.add(getCategoryDisplayName(c));
+            }
+        }
+        Collections.sort(categories);
+        return categories;
+    }
 
     /**
      * Returns a list of plugins that should be shown in the "available" tab, grouped by category.

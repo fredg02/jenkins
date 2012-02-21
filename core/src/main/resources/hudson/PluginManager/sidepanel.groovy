@@ -32,5 +32,20 @@ l.side_panel {
         if (!app.updateCenter.jobs.isEmpty()) {
             l.task(icon:"images/24x24/plugin.png", href:"${rootURL}/updateCenter/", title:_("Update Center"))
         }
+        if (attrs != null && attrs.page != null && attrs.page=='available' && !app.updateCenter.getCategories().isEmpty()){
+            l.pane(title:_("Categories")){
+                tr{
+                    td(class:"pane"){
+                        ul {
+                            app.updateCenter.getCategories().each { c ->
+                                li{
+                                    a(href:"#"+c, c)
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
     }
 }
